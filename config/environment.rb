@@ -108,9 +108,6 @@ Rails::Initializer.run do |config|
 
 end
 
-ActionMailer::Base.smtp_settings = CustomerConfig.smtp
-ActionMailer::Base.raise_delivery_errors = false
-
 ActiveRecord::Base.logger.level = Logger::INFO if RAILS_ENV == 'production'
 
 ######################################################################
