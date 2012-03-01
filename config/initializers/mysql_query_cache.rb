@@ -1,2 +1,1 @@
-
-ActiveRecord::Base.connection.execute("SET GLOBAL query_cache_type = 1;")
+#ActiveRecord::Base.connection.execute("SET GLOBAL query_cache_type = 1;")

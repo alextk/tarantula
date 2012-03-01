@@ -43,10 +43,16 @@ namespace :custom_deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 
+  desc 'Restart delayed jobs'
+  task :restart_delayed_jobs do
+    run "/etc/init.d/delayed_job restart"
+  end
+
 end
 
 after 'deploy:setup', 'custom_deploy:create_shared_config'
 after 'deploy:symlink', 'custom_deploy:symlink_config_resources'
+after 'deploy:update', 'custom_deploy:restart_delayed_jobs'
 
 #Make sure old releases are deleted, after each time deploy:update is inovked (new version is pulled from svn)
 after 'deploy:update', 'deploy:cleanup'
