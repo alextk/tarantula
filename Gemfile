@@ -12,7 +12,9 @@ gem 'libxml-ruby', :require => 'libxml_ruby'
 gem 'system_timer'
 gem 'faker'
 gem 'json'
-gem 'rack', '1.0.1'
+gem 'rack'
+gem 'rdoc'
+gem 'capistrano'
 
 
 group :development do
