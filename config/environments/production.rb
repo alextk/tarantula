@@ -23,8 +23,8 @@ config.cache_store = :mem_cache_store, '127.0.0.1', {:namespace => "testia_produ
 ObjectSpace.each_object(Mongrel::HttpServer) { |i| @port = i.port } rescue nil
 
 # Need to be able to run this code during migrations or console
-if @port and @port.to_i > 0
-  config.logger = Logger.new File.expand_path(RAILS_ROOT+"/log/#{ENV['RAILS_ENV']}.#{@port}.log"), 5, 100.megabytes
-else
-  puts "Port could not be introspected; we must not be running Mongrel in this instance."
-end
+#if @port and @port.to_i > 0
+config.logger = Logger.new File.expand_path(RAILS_ROOT+"/log/#{ENV['RAILS_ENV']}.log"), 5, 10.megabytes
+#else
+#  puts "Port could not be introspected; we must not be running Mongrel in this instance."
+#end
